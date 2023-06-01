@@ -10,16 +10,19 @@ type Pais struct {
 
 func (P Pais) BigPais() {
 	if P.Population > 100 {
-		fmt.Println("%d es de los mayores países del mundo", P.Name)
-	}else {fmt.Println("%d no es un país de los más grandes", P.Name)}
+		fmt.Printf("%s es uno de los mayores países del mundo\n", P.Name)
+	} else {
+		fmt.Printf("%s no es uno de los países más grandes\n", P.Name)
+	}
 }
 
-func (P Pais) PlacePais (){
-	switch P.Continent{
-	case Europa {
-		fmt.Println("El pais %d pertenece al contienente %d", P.Name, P.Continent)
+func (P Pais) PlacePais() {
+	switch P.Continent {
+	case "Europa":
+		fmt.Printf("El país %s pertenece al continente %s\n", P.Name, P.Continent)
+	case "Asia":
+		fmt.Printf("El país %s pertenece al continente %s\n", P.Name, P.Continent)
+	default:
+		fmt.Printf("%s es un país con el que nuestra empresa no trabaja\n", P.Name)
 	}
-case Asia {fmt.Println("El pais %d pertenece al contienente %d", P.Name, P.Continent)}
-default{fmt.Println("%d se trata de un país con el que no trabaja nuestra empresa", P.Name)}
-
 }

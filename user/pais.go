@@ -14,4 +14,12 @@ func (P Pais) BigPais() {
 	}else {fmt.Println("%d no es un país de los más grandes", P.Name)}
 }
 
-func (P Pais)
+func (P Pais) PlacePais (){
+	switch P.Continent{
+	case Europa {
+		fmt.Println("El pais %d pertenece al contienente %d", P.Name, P.Continent)
+	}
+case Asia {fmt.Println("El pais %d pertenece al contienente %d", P.Name, P.Continent)}
+default{fmt.Println("%d se trata de un país con el que no trabaja nuestra empresa", P.Name)}
+
+}

@@ -22,6 +22,7 @@ func NewServer() Server {
 
 	router.GET("/suma", handler.PaginaSuma)
 	router.GET("/resta", handler.PaginaResta)
+	router.GET("/multidivi", handler.PaginaMultiDivi)
 	return Server{
 		engine:  router,
 		handler: handler,
@@ -37,6 +38,18 @@ func (h Handler) PaginaSuma(c *gin.Context) {
 func (h Handler) PaginaResta(c *gin.Context) {
 	valor := user.Resta(10, 5)
 	response := fmt.Sprintf("El resultado de la resta es: %d", valor)
+	c.String(http.StatusOK, response)
+}
+
+func (h Handler) PaginaMultiDivi(c *gin.Context) {
+	opcion := "M"
+	var response string
+	valor := user.MultiplicacionDivision(10, 5, opcion)
+	if opcion == "M" {
+		response = fmt.Sprintf("El resultado de la multiplicación es: %d", valor)
+	} else {
+		response = fmt.Sprintf("El resultado de la división es: %d", valor)
+	}
 	c.String(http.StatusOK, response)
 }
 
